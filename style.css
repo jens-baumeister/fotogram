@@ -1,7 +1,24 @@
+@font-face {
+    font-family: "fotogram-headline";
+    src: url("./assets/fonts/Parisienne/Parisienne-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "fotogram";
+    src: url("./assets/fonts/Merienda/Merienda-VariableFont_wght.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     margin: 0;
     width: 100%;
     min-height: 100vh;
+    background-image: url("./assets/img/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
