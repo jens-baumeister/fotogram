@@ -41,3 +41,19 @@ let myimgdesc = [
     'Der Königshütter Wasserfall ist ein künstlich angelegter Wasserfall, des Naturparks Harz/Sachsen-Anhalt.',
     'Bei einem kleinen Spaziergang, am Südstrand von Wilhelmshaven, den Sonnenuntergang genießen.',
 ]
+
+function render(myimgs, myimgdesc) {
+    let contentRef = document.getElementById('content')
+    contentRef.innerHTML = ""
+    for (let i = 0; i < myimgs.length; i++) {
+        contentRef.innerHTML += getPicsHtml(i, myimgs, myimgdesc);
+    }
+}
+
+function getPicsHtml(i, myimgs, myimgdesc) {
+    return `<div class="pic">
+            <p>
+            <img src="./assets/img/content-pics/${myimgs[i]}" alt="${myimgdesc}">
+            </p>
+            </div>`
+}
