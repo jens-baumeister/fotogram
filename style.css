@@ -29,9 +29,12 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    padding-left: 48px;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+header img {
+    padding-left: 48px;
 }
 
 main {
@@ -82,7 +85,6 @@ footer {
     object-fit: contain;
     border-width: 2px;
     border-radius: 8px;
-    box-shadow: (0px 4px 4px rgba(246, 245, 245, 0.25))
 }
 
 .pic img{
@@ -95,4 +97,6 @@ footer {
     transform: scale(1.2);
     z-index: 2;
     position: relative;
+    box-shadow: 0 0 20px rgba(255,255,255,0.9);
 }
+
