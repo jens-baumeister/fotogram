@@ -53,7 +53,7 @@ function render(myimgs, myimgdesc) {
 function getPicsHtml(i, myimgs, myimgdesc) {
     return `<div class="pic">
             <p>
-            <img src="./assets/img/content-pics/${myimgs[i]}" alt="${myimgdesc}">
+            <img src="./assets/img/content-pics/${myimgs[i]}" alt="${myimgdesc[i]}">
             </p>
             </div>`
 }
