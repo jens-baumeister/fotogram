@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,24 +9,42 @@
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js"></script>
 </head>
+
 <body onload="render(myImgs, myImgDesc)">
-    <div id="overlay" class="overlay display_none"></div>
+    <div onclick="toggleOverlay()" id="overlay" class="overlay display_none">
+        <div class="overlay-content" onclick="event.stopPropagation()">
+    <span id="closeBtn" onclick="toggleOverlay()">×</span>
+
+    <div class="overlay-image">
+      <img id="overlayImg" src="" alt="">
+    </div>
+
+    <p id="overlayDesc"></p>
+
+    <div class="overlay-controls">
+      <button onclick="prevImage(event)">⬅ Zurück</button>
+      <span id="overlayCounter"></span>
+      <button onclick="nextImage(event)">Weiter ➡</button>
+    </div>
+  </div>
+    </div>
     <header>
-        <nav>        
-        <img src="./assets/img/Fotogram_Logo.svg" alt="" srcset="">
+        <nav>
+            <img src="./assets/img/Fotogram_Logo.svg" alt="" srcset="">
         </nav>
     </header>
 
     <main>
         <section>
-        <h1>Mein Fotoalbum</h1>
-        <div id="content" class="album"></div>
+            <h1>Mein Fotoalbum</h1>
+            <div id="content" class="album"></div>
         </section>
     </main>
 
     <footer>
         <p>&copy Jens Baumeister</p>
     </footer>
-    
+
 </body>
+
 </html>

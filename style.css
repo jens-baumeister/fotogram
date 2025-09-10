@@ -141,15 +141,78 @@ footer {
 }
 
 .overlay {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.501);
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: auto;
 }
+
+.overlay-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90%;
+  max-height: 90%;
+  color: white;
+  text-align: center;
+}
+
+/* 📌 Fester Bereich für das Bild */
+.overlay-image {
+  height: 480px;               /* feste Höhe */
+  width: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  background: rgba(0,0,0,0.3); /* optional, wirkt wie Rahmen */
+}
+
+/* 📌 Bild skaliert rein */
+.overlay-image img {
+  max-width: 480px;
+  max-height: 480px;
+  object-fit: cover;        /* sorgt dafür, dass nichts verzerrt */
+}
+
+#overlayDesc {
+  margin: 10px 0;
+  font-size: 1.1em;
+  max-width: 80%;
+}
+
+.overlay-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.overlay-controls button {
+  padding: 8px 16px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+#closeBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
 .display_none {
     display: none;
 }

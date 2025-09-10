@@ -21,25 +21,25 @@ let myImgs = [
 ]
 
 let myImgDesc = [
-    'Die Orangerie im Barockgarten Großsedlitz, bei Dresden.',
-    'Das Foto ist beim Aufstieg des Glockenturms, von Santa Maria del Fiore enstanden. (Dom von Florenz)',
+    'Der Barockgarten Großsedlitz, bei Dresden.',
+    'Glockenturm, Dom von Florenz',
     'Die Dresdner Frauenkirche bei Nacht',
-    'Im Juli kann man morgens, gegen 5 Uhr, einen wunderschönen Sonnenaufgang an den Externsteinen genißen. (Falls man nicht schlafen kann &#128521)',
-    'Das GOP in Bad Oeynhausen. Bekannt für seine Varietè Veranstaltungen.',
-    'Der Bad Pyrmonter Kurpark zählt zu den schönsten Kurparks in Deutschland.',
-    'Blick auf Florenz, von der Piazzale Michelangelo.',
-    'Die Ponte Vecchio in Florenz. Mit ihren kleinen Geschäften, gehört sie zum Weltkulturerbe.',
-    'Wo in Travemünde in der kalten Jahreszeit die Yachten ihren Winterschlaf halten, findet man im Sommer Kunstwerke aus Sand.',
-    'Das Schloss von Schwerin. Regierungssitz des Landesregierung von Mecklenburg-Vorpommern.',
-    'An der nördlichen Spitze von Sirmione am Gadasee, befindet sich die Beach Bar Lido delle Grotte. Der Ort ist auch bekannt als "Jamaica Beach".',
-    'Die Wasserfestung von Sirmione "Castello Scaligero di Sirmione".',
-    'Auf dem Weg, von der Wasserfestung zur Beachbar, kommt man an einigen wunderschönen Gärten vorbei, die zum verweilen einladen.',
-    'Unweit der "Jamaica Beach" befindet sich die Ruine einer alten römischen Villa. Dort finden noch immer Ausgrabungen statt.',
+    'Sonnenaufgang an den Externsteinen.',
+    'Das GOP in Bad Oeynhausen.',
+    'Der Bad Pyrmonter Kurpark.',
+    'Blick auf Florenz.',
+    'Die Ponte Vecchio in Florenz.',
+    'Sandskulpturen in Travemünde.',
+    'Das Schloss von Schwerin.',
+    '"Jamaica Beach" in Sirmione, am Gardasee.',
+    'Castello Scaligero di Sirmione.',
+    'Garten bei Sirmione.',
+    'Ruinen einer alten Villa in Sirmione.',
     'Blaue Stunde, am Gadasee.',
-    'Auch Störche sind Frühaufsteher und suchen sich ihr Frühstück in den Emmerwiesen, zwischen Lügde und Bad Pyrmont.',
+    'Storch in den Emmerwiesen.',
     'Sonnenaufgang über Bad Pyrmont.',
-    'Der Königshütter Wasserfall ist ein künstlich angelegter Wasserfall, des Naturparks Harz/Sachsen-Anhalt.',
-    'Bei einem kleinen Spaziergang, am Südstrand von Wilhelmshaven, den Sonnenuntergang genießen.',
+    'Der Königshütter Wasserfall.',
+    'Sonnenuntergang Wilhelmshaven.',
 ]
 
 function render(myImgs, myImgDesc) {
@@ -50,9 +50,43 @@ function render(myImgs, myImgDesc) {
     }
 }
 
+let currentIndex = 0;
+
 function getPicsHtml(i, myImgs, myImgDesc) {
-    return `<div class="picture">            
+    return `<div onclick="toggleOverlay(${i})" class="picture">            
             <img src="./assets/img/content-pics/${myImgs[i]}" alt="${myImgDesc[i]}">
-        <div id="overlay" class="overlay"></div>            
             </div>`
+}
+
+function toggleOverlay(index) {
+    let overlayRef = document.getElementById('overlay');
+
+    if (index !== null) {
+    currentIndex = index;
+    updateOverlay();
+  }
+    overlayRef.classList.toggle('display_none')
+}
+
+function updateOverlay() {
+  let imgRef = document.getElementById('overlayImg');
+  let descRef = document.getElementById('overlayDesc');
+  let counterRef = document.getElementById('overlayCounter');
+
+  imgRef.src = `./assets/img/content-pics/${myImgs[currentIndex]}`;
+  imgRef.alt = myImgDesc[currentIndex];
+  descRef.textContent = myImgDesc[currentIndex];
+  counterRef.textContent = `Bild ${currentIndex + 1} / ${myImgs.length}`;
+}
+
+function nextImage(event) {
+  currentIndex = (currentIndex + 1) % myImgs.length;
+  updateOverlay();
+  event.stopPropagation();
+}
+
+function prevImage(event) {
+  currentIndex = (currentIndex - 1 + myImgs.length) % myImgs.length;
+  updateOverlay();
+  event.stopPropagation();
 }
