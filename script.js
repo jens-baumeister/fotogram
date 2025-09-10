@@ -1,4 +1,4 @@
-let myimgs = [
+let myImgs = [
     'Barockgarten2.jpg',
     'belltower_santa_maria_del_fiore.jpg',
     'Dresden Frauenkirche Spiegelung.jpg',
@@ -20,7 +20,7 @@ let myimgs = [
     'wilhelmshaven_beach.jpg', 
 ]
 
-let myimgdesc = [
+let myImgDesc = [
     'Die Orangerie im Barockgarten Großsedlitz, bei Dresden.',
     'Das Foto ist beim Aufstieg des Glockenturms, von Santa Maria del Fiore enstanden. (Dom von Florenz)',
     'Die Dresdner Frauenkirche bei Nacht',
@@ -42,16 +42,17 @@ let myimgdesc = [
     'Bei einem kleinen Spaziergang, am Südstrand von Wilhelmshaven, den Sonnenuntergang genießen.',
 ]
 
-function render(myimgs, myimgdesc) {
+function render(myImgs, myImgDesc) {
     let contentRef = document.getElementById('content')
     contentRef.innerHTML = ""
-    for (let i = 0; i < myimgs.length; i++) {
-        contentRef.innerHTML += getPicsHtml(i, myimgs, myimgdesc);
+    for (let i = 0; i < myImgs.length; i++) {
+        contentRef.innerHTML += getPicsHtml(i, myImgs, myImgDesc);
     }
 }
 
-function getPicsHtml(i, myimgs, myimgdesc) {
+function getPicsHtml(i, myImgs, myImgDesc) {
     return `<div class="picture">            
-            <img src="./assets/img/content-pics/${myimgs[i]}" alt="${myimgdesc[i]}">            
+            <img src="./assets/img/content-pics/${myImgs[i]}" alt="${myImgDesc[i]}">
+        <div id="overlay" class="overlay"></div>            
             </div>`
 }
