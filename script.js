@@ -17,7 +17,7 @@ let myImgs = [
     'Sonnenaufgang Storch.jpg',
     'Sonnenaufgang-Lügde.jpg',
     'Wasserfall.jpg',
-    'wilhelmshaven_beach.jpg', 
+    'wilhelmshaven_beach.jpg',
 ]
 
 let myImgDesc = [
@@ -42,6 +42,8 @@ let myImgDesc = [
     'Sonnenuntergang Wilhelmshaven.',
 ]
 
+let currentIndex = 0;
+
 function render(myImgs, myImgDesc) {
     let contentRef = document.getElementById('content')
     contentRef.innerHTML = ""
@@ -49,8 +51,6 @@ function render(myImgs, myImgDesc) {
         contentRef.innerHTML += getPicsHtml(i, myImgs, myImgDesc);
     }
 }
-
-let currentIndex = 0;
 
 function getPicsHtml(i, myImgs, myImgDesc) {
     return `<div onclick="toggleOverlay(${i})" class="picture">            
@@ -62,31 +62,31 @@ function toggleOverlay(index) {
     let overlayRef = document.getElementById('overlay');
 
     if (index !== null) {
-    currentIndex = index;
-    updateOverlay();
-  }
+        currentIndex = index;
+        updateOverlay();
+    }
     overlayRef.classList.toggle('display_none')
 }
 
 function updateOverlay() {
-  let imgRef = document.getElementById('overlayImg');
-  let descRef = document.getElementById('overlayDesc');
-  let counterRef = document.getElementById('overlayCounter');
+    let imgRef = document.getElementById('overlayImg');
+    let descRef = document.getElementById('overlayDesc');
+    let counterRef = document.getElementById('overlayCounter');
 
-  imgRef.src = `./assets/img/content-pics/${myImgs[currentIndex]}`;
-  imgRef.alt = myImgDesc[currentIndex];
-  descRef.textContent = myImgDesc[currentIndex];
-  counterRef.textContent = `Bild ${currentIndex + 1} / ${myImgs.length}`;
+    imgRef.src = `./assets/img/content-pics/${myImgs[currentIndex]}`;
+    imgRef.alt = myImgDesc[currentIndex];
+    descRef.textContent = myImgDesc[currentIndex];
+    counterRef.textContent = `Bild ${currentIndex + 1} / ${myImgs.length}`;
 }
 
 function nextImage(event) {
-  currentIndex = (currentIndex + 1) % myImgs.length;
-  updateOverlay();
-  event.stopPropagation();
+    currentIndex = (currentIndex + 1) % myImgs.length;
+    updateOverlay();
+    event.stopPropagation();
 }
 
 function prevImage(event) {
-  currentIndex = (currentIndex - 1 + myImgs.length) % myImgs.length;
-  updateOverlay();
-  event.stopPropagation();
+    currentIndex = (currentIndex - 1 + myImgs.length) % myImgs.length;
+    updateOverlay();
+    event.stopPropagation();
 }
