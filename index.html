@@ -13,20 +13,20 @@
 <body onload="render(myImgs, myImgDesc)">
     <div onclick="toggleOverlay()" id="overlay" class="overlay display_none">
         <div class="overlay-content" onclick="event.stopPropagation()">
-    <span id="closeBtn" onclick="toggleOverlay()">×</span>
+            <span id="closeBtn" onclick="toggleOverlay()">×</span>
 
-    <div class="overlay-image">
-      <img id="overlayImg" src="" alt="">
-    </div>
+            <div class="overlay-image">
+                <img id="overlayImg" src="" alt="">
+            </div>
 
-    <p id="overlayDesc"></p>
+            <p id="overlayDesc"></p>
 
-    <div class="overlay-controls">
-      <button onclick="prevImage(event)">⬅ Zurück</button>
-      <span id="overlayCounter"></span>
-      <button onclick="nextImage(event)">Weiter ➡</button>
-    </div>
-  </div>
+            <div class="overlay-controls">
+                <button onclick="prevImage(event)">⬅ Zurück</button>
+                <span id="overlayCounter"></span>
+                <button onclick="nextImage(event)">Weiter ➡</button>
+            </div>
+        </div>
     </div>
     <header>
         <nav>
