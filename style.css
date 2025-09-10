@@ -75,28 +75,57 @@ footer {
 
 .album {
     max-width: 1440px;
-    display: flex; 
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.album img {
+.picture img {
     width: 200px;
     height: 200px;
-    object-fit: contain;
+    object-fit: cover;
     border-width: 2px;
     border-radius: 8px;
 }
 
-.pic img{
-    margin: 16px;
-    border-radius: 16px;
-    transition: all 0.3s ease;
+.picture {
+  width: 200px;
+  height: 200px;
+  margin: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  transition: all 0.5s ease;
 }
 
-.album img:hover {
-    transform: scale(1.2);
-    z-index: 2;
-    position: relative;
-    box-shadow: 0 0 20px rgba(255,255,255,0.9);
+.picture::before {
+  content: '';
+  position: absolute;
+  /* top: -50%;
+  left: -50%; */
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    0deg, 
+    transparent, 
+    transparent 20%, 
+    rgba(255, 255, 255, 0.7)
+  );
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
 }
 
+.picture:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.picture:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+}
