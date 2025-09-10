@@ -165,8 +165,8 @@ footer {
 }
 
 .overlay-image {
-  height: 480px;
-  width: 480px;
+  height: 1000px;
+  width: 1000px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -175,8 +175,8 @@ footer {
 }
 
 .overlay-image img {
-  max-width: 480px;
-  max-height: 480px;
+  max-width: 1000px;
+  max-height: 1000px;
   object-fit: cover;
 }
 
@@ -196,7 +196,7 @@ footer {
 
 .overlay-controls button {
   padding: 8px 16px;
-  font-size: 1em;
+  font-size: 1rem;
   cursor: pointer;
 }
 
@@ -212,4 +212,82 @@ footer {
 
 .display_none {
   display: none;
+}
+
+@media (max-width: 570px) {
+  h1 {
+    font-size: 56px;
+  }
+
+  .picture {
+    width: 150px;
+    height: 150px;
+    margin: 12px;
+  }
+  .picture img {
+    width: 150px;
+    height: 150px;
+  }
+
+  nav img {
+    width: 200px;
+  }
+
+  .overlay-image {
+    height: 400px;
+    width: 400px;
+  }
+
+  .overlay-image img {
+    max-width: 400px;
+    max-height: 400px;
+  }
+
+  .overlay-controls button {
+    padding: 6px 12px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 420px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  footer {
+    font-size: 18px;
+  }
+
+  .picture {
+    width: 120px;
+    height: 120px;
+    margin: 8px;
+  }
+  .picture img {
+    width: 120px;
+    height: 120px;
+  }
+
+  nav img {
+    width: 150px;
+  }
+
+  .overlay-image {
+    height: 300px;
+    width: 300px;
+  }
+
+  .overlay-image img {
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+  #overlayDesc {
+    font-size: 18px;
+    max-width: 90%;
+  }
+
+  .overlay-controls button {
+    font-size: 16px;
+  }
 }
