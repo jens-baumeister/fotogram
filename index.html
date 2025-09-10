@@ -11,7 +11,7 @@
 </head>
 
 <body onload="render(myImgs, myImgDesc)">
-    <div onclick="toggleOverlay()" id="overlay" class="overlay display_none">
+    <div onclick="toggleOverlay()" id="overlay" class="overlay display_none" aria-haspopup="dialog" aria-hidden="true">
         <div class="overlay-content" onclick="event.stopPropagation()">
             <span id="closeBtn" onclick="toggleOverlay()">×</span>
 
