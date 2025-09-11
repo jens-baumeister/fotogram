@@ -247,6 +247,32 @@ footer {
   display: none;
 }
 
+@media (max-width: 1030px) {
+
+  .overlay-image {
+    height: 720px;
+    width: 720px;
+  }
+
+  .overlay-image img {
+    max-width: 720px;
+    max-height: 720px;
+  }
+}
+
+@media (max-width: 740px) {
+
+  .overlay-image {
+    height: 540px;
+    width: 540px;
+  }
+
+  .overlay-image img {
+    max-width: 540px;
+    max-height: 540px;
+  }
+}
+
 @media (max-width: 570px) {
   h1 {
     font-size: 56px;
