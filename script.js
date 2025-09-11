@@ -53,7 +53,7 @@ function render(myImgs, myImgDesc) {
 }
 
 function getPicsHtml(i, myImgs, myImgDesc) {
-    return `<div onclick="toggleOverlay(${i})" class="picture" aria-haspopup="dialog" aria-hidden="true">            
+    return `<div tabindex="0" onclick="toggleOverlay(${i})" class="picture" aria-haspopup="dialog" aria-hidden="true">            
             <img src="./assets/img/content-pics/${myImgs[i]}" alt="${myImgDesc[i]}">
             </div>`
 }

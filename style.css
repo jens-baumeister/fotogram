@@ -68,13 +68,6 @@ section {
   text-align: center;
 }
 
-#content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 1440px;
-}
-
 footer {
   height: 80px;
   width: 100%;
@@ -86,6 +79,8 @@ footer {
 }
 
 .album {
+  display: flex;
+  flex-wrap: wrap;
   max-width: 1440px;
   display: flex;
   justify-content: center;
@@ -135,6 +130,16 @@ footer {
 }
 
 .picture:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+}
+
+.picture:focus {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.picture:focus::before {
   opacity: 1;
   transform: rotate(-45deg) translateY(100%);
 }
@@ -195,9 +200,20 @@ footer {
 }
 
 .overlay-controls button {
+  border-radius: 100%;
   padding: 8px 16px;
   font-size: 1rem;
   cursor: pointer;
+}
+
+.overlay-controls button:hover {
+  background-color: rgba(187, 184, 184, 0.2);
+  color: white;
+}
+
+.overlay-controls button:focus {
+  background-color: rgba(187, 184, 184, 0.2);
+  color: white;
 }
 
 #closeBtn {
