@@ -11,9 +11,9 @@
 </head>
 
 <body onload="render(myImgs, myImgDesc)">
-    <div onclick="toggleOverlay()" id="overlay" class="overlay display_none" aria-haspopup="dialog" aria-hidden="true">
+    <div onclick="toggleOverlay()" id="overlay" class="overlay display_none" aria-haspopup="dialog" aria>
         <div class="overlay-content" onclick="event.stopPropagation()">
-            <span id="closeBtn" onclick="toggleOverlay()">×</span>
+            <button id="closeBtn" class="closeBtn" onclick="toggleOverlay()" alt="Overlay schließen">×</button> 
 
             <div class="overlay-image">
                 <img id="overlayImg" src="" alt="">
@@ -22,9 +22,9 @@
             <p id="overlayDesc"></p>
 
             <div class="overlay-controls">
-                <button tabindex="1" onclick="prevImage(event)">&#8592</button>
+                <button tabindex="1" onclick="prevImage(event)" alt="vorheriges Bild">&#8592</button>
                 <span id="overlayCounter"></span>
-                <button tabindex="2" onclick="nextImage(event)">&#8594</button>
+                <button id="nextImgBtn" tabindex="2" onclick="nextImage(event)" alt="nächstes Bild">&#8594</button>
             </div>
         </div>
     </div>

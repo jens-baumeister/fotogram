@@ -53,22 +53,29 @@ function render(myImgs, myImgDesc) {
 }
 
 function getPicsHtml(i, myImgs, myImgDesc) {
-    return `<div tabindex="0" onclick="toggleOverlay(${i})" class="picture" aria-haspopup="dialog" aria-hidden="true">            
+    return `<button onclick="toggleOverlay(${i})" class="picture" aria-haspopup="dialog">            
             <img src="./assets/img/content-pics/${myImgs[i]}" alt="${myImgDesc[i]}">
-            </div>`
+            </button>`;
 }
 
-function toggleOverlay(index) {
+function toggleOverlay(index = null) {
     let overlayRef = document.getElementById('overlay');
 
     if (index !== null) {
         currentIndex = index;
         updateOverlay();
     }
-    overlayRef.classList.toggle('display_none')
+    overlayRef.classList.toggle('display_none');
+
+    if (!overlayRef.classList.contains('display_none')) {
+        document.getElementById('nextImgBtn').focus();
+    }
 }
 
 function updateOverlay() {
+
+    if (!myImgs[currentIndex]) return;
+
     let imgRef = document.getElementById('overlayImg');
     let descRef = document.getElementById('overlayDesc');
     let counterRef = document.getElementById('overlayCounter');
