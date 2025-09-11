@@ -18,10 +18,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-image: url("./assets/img/background.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: #00214B;
   box-sizing: border-box;
   font-family: "fotogram";
 }
@@ -29,7 +26,7 @@ body {
 header {
   height: 80px;
   width: 100%;
-  background-color: #000000;
+  background-color: #00214B;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -37,12 +34,12 @@ header {
   z-index: 1000;
 }
 
-nav img {
+a img {
   width: 300px;
   height: auto;
 }
 
-nav {
+a {
   width: 1250px;
   padding: 32px;
   display: flex;
@@ -75,7 +72,7 @@ footer {
   color: white;
   font-size: 24px;
   text-align: center;
-
+  background-color: #00214B;
 }
 
 .album {
@@ -129,6 +126,7 @@ footer {
 .picture:hover {
   transform: scale(1.1);
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  cursor: pointer;
 }
 
 .picture:hover::before {
@@ -173,23 +171,25 @@ footer {
 }
 
 .overlay-image {
-  height: 1000px;
-  width: 1000px;
+  height: 640px;
+  width: 640px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  
   margin-bottom: 15px;
   background: rgba(0, 0, 0, 0.3);
 }
 
 .overlay-image img {
-  max-width: 1000px;
-  max-height: 1000px;
+  max-width: 560px;
+  max-height: 560px;
   object-fit: cover;
 }
 
 #overlayDesc {
-  margin: 10px 0;
+  margin: 10;
   font-size: 1.1em;
   max-width: 80%;
 }
@@ -247,18 +247,7 @@ footer {
   display: none;
 }
 
-@media (max-width: 1030px) {
 
-  .overlay-image {
-    height: 720px;
-    width: 720px;
-  }
-
-  .overlay-image img {
-    max-width: 720px;
-    max-height: 720px;
-  }
-}
 
 @media (max-width: 740px) {
 

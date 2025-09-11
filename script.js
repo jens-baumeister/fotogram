@@ -44,7 +44,7 @@ let myImgDesc = [
 
 let currentIndex = 0;
 
-function render(myImgs, myImgDesc) {
+function render() {
     let contentRef = document.getElementById('content')
     contentRef.innerHTML = ""
     for (let i = 0; i < myImgs.length; i++) {
@@ -68,7 +68,7 @@ function toggleOverlay(index = null) {
     overlayRef.classList.toggle('display_none');
 
     if (!overlayRef.classList.contains('display_none')) {
-        document.getElementById('nextImgBtn').focus();
+        document.getElementById('closeBtn').focus();
     }
 }
 
@@ -86,14 +86,14 @@ function updateOverlay() {
     counterRef.textContent = `Bild ${currentIndex + 1} / ${myImgs.length}`;
 }
 
-function nextImage(event) {
-    currentIndex = (currentIndex + 1) % myImgs.length;
-    updateOverlay();
-    event.stopPropagation();
-}
+function navigateImage(event, direction) {
+    if (event) event.stopPropagation();
 
-function prevImage(event) {
-    currentIndex = (currentIndex - 1 + myImgs.length) % myImgs.length;
+    if (direction === 'next') {
+        currentIndex = (currentIndex + 1) % myImgs.length;
+    } else if (direction === 'prev') {
+        currentIndex = (currentIndex - 1 + myImgs.length) % myImgs.length;
+    }
+
     updateOverlay();
-    event.stopPropagation();
 }

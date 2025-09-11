@@ -10,12 +10,12 @@
     <script src="./script.js"></script>
 </head>
 
-<body onload="render(myImgs, myImgDesc)">
+<body onload="render()">
 
     <header>
-        <nav>
+        <a>
             <img src="./assets/img/Fotogram_Logo.svg" alt="Logo von Fotogram" srcset="">
-        </nav>
+        </a>
     </header>
 
     <main>
@@ -24,23 +24,25 @@
             <div id="content" class="album"></div>
         </section>
 
-        <div onclick="toggleOverlay()" id="overlay" class="overlay display_none" aria-haspopup="dialog">
+        <overlay onclick="toggleOverlay()" id="overlay" class="overlay display_none" aria-haspopup="dialog">
             <div class="overlay-content" onclick="event.stopPropagation()">
                 <button id="closeBtn" class="closeBtn" onclick="toggleOverlay()" alt="Overlay schließen">×</button>
 
                 <div class="overlay-image">
                     <img id="overlayImg" src="" alt="">
+                    <p id="overlayDesc"></p>
                 </div>
-
-                <p id="overlayDesc"></p>
 
                 <div class="overlay-controls">
-                    <button tabindex="1" onclick="prevImage(event)" alt="vorheriges Bild">&#8592</button>
+                    <button id="prevImgBtn" onclick="navigateImage(event, 'prev')"
+                        aria-label="vorheriges Bild">&#8592;</button>
                     <span id="overlayCounter"></span>
-                    <button id="nextImgBtn" tabindex="2" onclick="nextImage(event)" alt="nächstes Bild">&#8594</button>
+                    <button id="nextImgBtn" onclick="navigateImage(event, 'next')"
+                        aria-label="nächstes Bild">&#8594;</button>
                 </div>
+
             </div>
-        </div>
+        </overlay>
     </main>
 
     <footer>
