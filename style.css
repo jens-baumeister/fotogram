@@ -210,12 +210,12 @@ footer {
 }
 
 .overlay-controls button:hover {
-  background-color: rgba(187, 184, 184, 0.2);
+  background-color: rgb(141, 4, 34);
   color: white;
 }
 
 .overlay-controls button:focus {
-  background-color: rgba(187, 184, 184, 0.2);
+  background-color: rgb(141, 4, 34);
   color: white;
 }
 

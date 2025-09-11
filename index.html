@@ -11,23 +11,7 @@
 </head>
 
 <body onload="render(myImgs, myImgDesc)">
-    <div onclick="toggleOverlay()" id="overlay" class="overlay display_none" aria-haspopup="dialog" aria>
-        <div class="overlay-content" onclick="event.stopPropagation()">
-            <button id="closeBtn" class="closeBtn" onclick="toggleOverlay()" alt="Overlay schließen">×</button>
 
-            <div class="overlay-image">
-                <img id="overlayImg" src="" alt="">
-            </div>
-
-            <p id="overlayDesc"></p>
-
-            <div class="overlay-controls">
-                <button tabindex="1" onclick="prevImage(event)" alt="vorheriges Bild">&#8592</button>
-                <span id="overlayCounter"></span>
-                <button id="nextImgBtn" tabindex="2" onclick="nextImage(event)" alt="nächstes Bild">&#8594</button>
-            </div>
-        </div>
-    </div>
     <header>
         <nav>
             <img src="./assets/img/Fotogram_Logo.svg" alt="Logo von Fotogram" srcset="">
@@ -35,10 +19,28 @@
     </header>
 
     <main>
-        <section>
+        <section id="PicIndex">
             <h1>Mein Fotoalbum</h1>
             <div id="content" class="album"></div>
         </section>
+
+        <div onclick="toggleOverlay()" id="overlay" class="overlay display_none" aria-haspopup="dialog">
+            <div class="overlay-content" onclick="event.stopPropagation()">
+                <button id="closeBtn" class="closeBtn" onclick="toggleOverlay()" alt="Overlay schließen">×</button>
+
+                <div class="overlay-image">
+                    <img id="overlayImg" src="" alt="">
+                </div>
+
+                <p id="overlayDesc"></p>
+
+                <div class="overlay-controls">
+                    <button tabindex="1" onclick="prevImage(event)" alt="vorheriges Bild">&#8592</button>
+                    <span id="overlayCounter"></span>
+                    <button id="nextImgBtn" tabindex="2" onclick="nextImage(event)" alt="nächstes Bild">&#8594</button>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>
